@@ -29,11 +29,12 @@ ArrayList<Star> stars = new ArrayList<Star>();
 void draw()
 {
   drawGrid();
+  drawStar();
  
   
 }
 
-
+//load data from the file
 void loadStar()
 {
   for(TableRow i : table.rows())
@@ -43,7 +44,7 @@ void loadStar()
     
     str.hab = i.getInt("Hab?");
     str.starName = i.getString("Display Name");
-    str.distance = i.getString("Distance");
+    str.distance = i.getFloat("Distance");
     str.xg = i.getFloat("Xg");
     str.yg = i.getFloat("Yg");
     str.zg = i.getFloat("Zg");
@@ -58,6 +59,7 @@ void loadStar()
   
 }
 
+//print the stars
 void printStar()
 {
   Star str;
@@ -72,6 +74,7 @@ void printStar()
   
 }
 
+//draw the grid
 void drawGrid()
 {
   Star str;
@@ -81,9 +84,7 @@ void drawGrid()
   float recH;
   int i = 0;
   int j = 0;
-  
   float border = 50;
-  int parsecs = 10;
   recW = width/10;
   recH = height/10;
   
@@ -98,24 +99,49 @@ void drawGrid()
         
       }
     }
-    
-  
-
-  
-  
+   
   
 }
 
+//to plot the stars position on the grid
 void drawStar()
 {
+  Star str;
+  str = new Star();
+  
+  float starsize = width/scaleVal();
+  
   for(int i = 0; i < stars.size(); i++)
   {
     str = stars.get(i);
-    noFill();
-    rect(x, y, 
-    
-    
-    
+    stroke(255, 255, 0);
+    line(str.xg * starsize, str.yg * starsize, str.xg * starsize + 20, str.yg * starsize + 20);
+    line(str.xg * starsize + 20, str.yg * starsize, str.xg * starsize, str.yg * starsize + 20);
   }
   
 }
+
+float scaleVal()
+{
+  Star str;
+  str = new Star();
+  
+  float max = 0;
+  
+  for(int i = 0; i < stars.size(); i++)
+  {
+    str = stars.get(i);
+    if(str.distance > max)
+    {
+      max = str.distance;
+      
+    }
+    
+  }
+  
+ 
+  return max;
+    
+    
+}
+ 

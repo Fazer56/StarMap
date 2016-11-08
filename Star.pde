@@ -2,12 +2,11 @@ class Star
 {
   int hab;
   String starName;
-  String distance;
+  float distance;
   float xg;
   float yg;
   float zg;
   float absmag;
-  color c;
  
   //default constructor 
   Star()
@@ -16,22 +15,20 @@ class Star
   
   
 //table row constructor 
-/*void getTableRow()
-{
-  Star star1 = new Star();
+  Star(int hab, String starName, float distance, float xg, float yg, float zg, float absmag)
+  {
   
-  table = new Table();
-  
-  table.addColumn("hab", Table.INT);
-  table.addColumn("starName", Table.STRING);
-  table.addColumn("distance", Table.STRING);
-  table.addColumn("xg", Table.FLOAT);
-  table.addColumn("yg", Table.FLOAT);
-  table.addColumn("zg", Table.FLOAT);
-  table.addColumn("absmag", Table.FLOAT);
-  
-  TableRow row = table.addRow();
-  
+    table = new Table();
+    table.addColumn("hab", Table.INT);
+    table.addColumn("starName", Table.STRING);
+    table.addColumn("distance", Table.STRING);
+    table.addColumn("xg", Table.FLOAT);
+    table.addColumn("yg", Table.FLOAT);
+    table.addColumn("zg", Table.FLOAT);
+    table.addColumn("absmag", Table.FLOAT);
+    
+    TableRow row = table.addRow();
+    
 }
   
  /* //paramterised
