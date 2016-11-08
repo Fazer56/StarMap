@@ -110,6 +110,7 @@ void drawStar()
   str = new Star();
   
   float starsize = width/scaleVal();
+  float starmass = width/starVal();
   
   for(int i = 0; i < stars.size(); i++)
   {
@@ -117,6 +118,11 @@ void drawStar()
     stroke(255, 255, 0);
     line(str.xg * starsize, str.yg * starsize, str.xg * starsize + 20, str.yg * starsize + 20);
     line(str.xg * starsize + 20, str.yg * starsize, str.xg * starsize, str.yg * starsize + 20);
+    noFill();
+    stroke(255,0,0);
+    ellipse(str.xg * starsize, str.yg * starsize, str.absmag /** starmass*/, str.absmag /** starmass*/);
+    text(str.starName, str.xg * starsize, str.yg * starsize);
+    
   }
   
 }
@@ -143,5 +149,29 @@ float scaleVal()
   return max;
     
     
+}
+
+float starVal()
+{
+  Star str;
+  str = new Star();
+  
+  float max = 0;
+  
+  for(int i = 0; i < stars.size(); i++)
+  {
+    str = stars.get(i);
+    if(str.absmag > max)
+    {
+      max = str.absmag;
+      
+    }
+    
+  }
+  
+ 
+  return max;
+    
+  
 }
  
