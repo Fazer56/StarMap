@@ -14,6 +14,26 @@ class Star
   {    
   }
   
+  
+//table row constructor 
+/*void getTableRow()
+{
+  Star star1 = new Star();
+  
+  table = new Table();
+  
+  table.addColumn("hab", Table.INT);
+  table.addColumn("starName", Table.STRING);
+  table.addColumn("distance", Table.STRING);
+  table.addColumn("xg", Table.FLOAT);
+  table.addColumn("yg", Table.FLOAT);
+  table.addColumn("zg", Table.FLOAT);
+  table.addColumn("absmag", Table.FLOAT);
+  
+  TableRow row = table.addRow();
+  
+}
+  
  /* //paramterised
   Star(int hab, String party, String con, float returned, float claimed)
   {
@@ -30,6 +50,5 @@ class Star
     return starName + "\t" + hab + "\t" + distance + "\t" + xg + "\t" + yg + "\t" + zg + "\t" + absmag ;
   
   }
-  
   
 }
